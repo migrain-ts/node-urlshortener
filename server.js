@@ -38,4 +38,4 @@ app.get('/:shortUrl', async(req, res) => {
     res.redirect(shortUrl.full)
 })
 
-app.listen(5050)
+app.listen(process.env.PORT)
