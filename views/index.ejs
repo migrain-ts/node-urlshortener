@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,37 +8,106 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <title>URL Shortener</title>
 </head>
+
 <body>
+    <nav style="padding-left: 5px; background: black">
+        <div class="nav-wrapper container">
+            <ul id="nav-mobile" class="hide-on-med-and-down">
+                <li><a href="/">Home</a></li>
+                <li><a href="urls">Urls</a></li>
+            </ul>
+        </div>
+    </nav>
     <div class="container center">
-        <h1>URL Shortener</h1>
-        <form action="/shortUrls" method="POST">
-            <label for="fullUrl" class="hide">URL</label>
-            <input required placeholder="URL" type="text" name="fullUrl" id="fullUrl">
-            <button type="submit" class="btn btn-large">Make it shorter</button>
-        </form>
-    
-        <table class="striped centered">
-            <thead>
-                <tr>
-                    <th>Full URL</th>
-                    <th>Short URL</th>
-                    <th>Clicks</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% shortUrls.forEach(shortUrl => { %>
-                    <tr>
-                        <td><a href="<%= shortUrl.full %>"><%= shortUrl.full %></a></td>
-                        <td><a href="<%= shortUrl.short %>"><%= shortUrl.short %></a></td>
-                        <td><%= shortUrl.clicks %></td>
-                    </tr>
-                <% }) %> 
-            </tbody>
-        </table>
+        <div class="section no-pad-bot" id="index-banner">
+            <div class="container">
+                <br><br>
+                <h1 class="header center black-text">Short URL Generator</h1>
+                <div class="row center">
+                    <h5 class="header col s12 light">You can use this short URL application everywhere !</h5>
+                </div>
+                <div class="row center">
+                    <a href="/urls" id="download-button" class="btn-large waves-effect waves-light black">Try the app</a>
+                </div>
+                <br><br>
+
+            </div>
+        </div>
     </div>
-    
+
+    <div class="container-fluid" style="margin-top: 100px;">
+        <div class="section">
+
+            <!--   Icon Section   -->
+            <div class="row">
+                <div class="col s12 m3">
+                    <div class="icon-block">
+                        <h2 class="center light-black-text"><i class="large material-icons">content_copy</i></h2>
+                        <h5 class="center">Copy your URL</h5>
+
+                    </div>
+                </div>
+
+                <div class="col s12 m3">
+                    <div class="icon-block">
+                        <h2 class="center light-black-text"><i class="large material-icons">backup</i></h2>
+                        <h5 class="center">Go <a style="color: black; font-weight: bold" href="/urls">here</a></h5>
+
+                    </div>
+                </div>
+
+                <div class="col s12 m3">
+                    <div class="icon-block">
+                        <h2 class="center light-black-text"><i class="large material-icons">rotate_left</i></h2>
+                        <h5 class="center">Generate short URL</h5>
+
+                    </div>
+                </div>
+
+                <div class="col s12 m3">
+                    <div class="icon-block">
+                        <h2 class="center light-black-text"><i class="large material-icons">share</i></h2>
+                        <h5 class="center">Share to anyone</h5>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <br><br>
+    </div>
+
+    <footer class="page-footer black" style="margin-top: 100px;">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Short URL</h5>
+                    <p class="grey-text text-lighten-4">I built this project to practice my NodeJS skills. It auto generates an express route and automatically redirects to the full URL.</p>
+
+
+                </div>
+                <div class="col l3 s12">
+
+                </div>
+                <div class="col l3 s12">
+                    <h5 class="white-text center">Pages</h5>
+                    <ul class="center">
+                        <li><a class="white-text" href="/">Home</a></li>
+                        <li><a class="white-text" href="/urls">Urls</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright center">
+            <div class="container">
+                &copy; dl3c01n
+            </div>
+        </div>
+    </footer>
+
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
+
 </html>

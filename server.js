@@ -12,23 +12,28 @@ mongoose.connect(db.uri, {
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: false }))
 
-app.get('/', async (req, res) => {
-    const shortUrls = await shortUrlModel.find() 
-    res.render('index', { shortUrls: shortUrls})
+app.get('/urls', async(req, res) => {
+    const shortUrls = await shortUrlModel.find()
+    res.render('urls', { shortUrls: shortUrls })
 })
 
-app.post('/shortUrls', async (req, res) => {
+app.get('/', async(req, res) => {
+    const shortUrls = await shortUrlModel.find()
+    res.render('index', { shortUrls: shortUrls })
+})
+
+app.post('/shortUrls', async(req, res) => {
     await shortUrlModel.create({ full: req.body.fullUrl })
     res.redirect('/')
 })
 
-app.get('/:shortUrl', async (req, res) => {
-    const shortUrl = await shortUrlModel.findOne({ short: req.params.shortUrl})
+app.get('/:shortUrl', async(req, res) => {
+    const shortUrl = await shortUrlModel.findOne({ short: req.params.shortUrl })
 
-    if(shortUrl == null) return res.sendStatus(404)
+    if (shortUrl == null) return res.sendStatus(404)
 
     shortUrl.clicks++
-    shortUrl.save();
+        shortUrl.save();
 
     res.redirect(shortUrl.full)
 })
