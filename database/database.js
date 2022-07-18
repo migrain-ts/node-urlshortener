@@ -1,3 +1,2 @@
-module.exports = {
-    uri: "mongodb+srv://urladmin:toor@cluster0.fziv6.mongodb.net/toor?retryWrites=true&w=majority"
-}
+export const MONGO_URI =
+  "mongodb+srv://dl3c01n:root@cluster0.yf8mw.mongodb.net/shorturl?retryWrites=true&w=majority";
